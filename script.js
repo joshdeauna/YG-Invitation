@@ -1,6 +1,6 @@
-document.getElementById("letter").addEventListener("click", function() {
-  this.style.transform = "rotateX(90deg)"; // Simulate opening animation
+document.getElementById("envelope").addEventListener("click", function () {
+  this.classList.add("opening");
   setTimeout(() => {
-    document.getElementById("flyer").style.display = "block";
-  }, 1000); // Wait for animation to finish
+    document.getElementById("flyer").style.display = "block"; // Show the flyer
+  }, 1000); // Matches the animation duration
 });
