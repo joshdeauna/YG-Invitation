@@ -1,0 +1,30 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f8f8f8;
+  font-family: Arial, sans-serif;
+}
+
+.letter {
+  width: 200px;
+  height: 150px;
+  background-color: #ffebcd;
+  border: 2px solid #d4a373;
+  text-align: center;
+  line-height: 150px;
+  cursor: pointer;
+  transition: transform 1s;
+}
+
+.flyer {
+  display: none;
+  margin-top: 20px;
+}
+
+.flyer img {
+  max-width: 100%;
+  height: auto;
+}
