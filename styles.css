@@ -1,11 +1,11 @@
 :root{
   --primary: #fff;
-  --bg-color: rgb(5, 353, 61);
+  --bg-color: rgb(5, 53, 61);
   --bg-envelope-color: #f5edd1;
   --envelope-tab: #ecdeb8;
   --envelope-cover: #e6cfa7;
   --shadow-color: rgba(0, 0, 0, 0.1);
-  --txt-color: #444
+  --txt-color: #444;
   --heart-color: rgb(252, 8, 231);
 }
 
@@ -39,7 +39,7 @@ body {
 
 .container > .envelope-wrapper > .envelope::before{
   content: '';
-  psoition: absolute;
+  position: absolute;
   z-index: 2;
   border-top: 130px solid var(--envelope-tab);
   border-right: 150px solid transparent;
@@ -92,7 +92,7 @@ body {
   position: absolute;
   width: 15px;
   height: 15px;
-  background car(--heart-color);
+  background var(--heart-color);
   border-radius: 50%;
 }
 
@@ -105,12 +105,12 @@ body {
 
 .flap > .envelope::before{
   z-index: 0;
-  transfor: rotateX(180deg);
+  transform: rotateX(180deg);
 }
 
 .flap > .envelope .letter{
   bottom: 100px;
-  trandform: scale(1.5);
+  transform: scale(1.5);
   transition-delay: 1s;
 }
 
