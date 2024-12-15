@@ -1,78 +1,104 @@
-/* General Styles */
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  background-color: #f8f8f8;
-  font-family: Arial, sans-serif;
+:root{
+  --primary: #fff;
+  --bg-color: rgb(5, 353, 61);
+  --bg-envelope-color: #f5edd1;
+  --envelope-tab: #ecdeb8;
+  --envelope-cover: #e6cfa7;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --txt-color: #444
+  --heart-color: rgb(252, 8, 231);
 }
 
-/* Envelope Styles */
-.envelope {
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container{
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.container > .envelope-wrapper{
+  background: var(--bg-envelope-color);
+  box-shadow: 0 0 40px var(--shadow-color);
+}
+
+.container > .envelope-wrapper > .envelope{
   position: relative;
   width: 300px;
-  height: 200px;
+  height: 230px;
+}
+
+.container > .envelope-wrapper > .envelope::before{
+  content: '';
+  psoition: absolute;
+  z-index: 2;
+  border-top: 130px solid var(--envelope-tab);
+  border-right: 150px solid transparent;
+  border-left: 150px solid transparent;
+  top: 0;
+  transform-origin: top;
+  transition: all 0.5s ease-in-out 0.7s;
+}
+
+.container > .envelope-wrapper > .envelope::after{
+  content: '';
+  position: absolute;
+  z-index: 2;
+  border-top: 130px solid transparent;
+  border-left: 150px solid var(--envelope-cover);
+  border-right: 150px solid var(--envelope-cover);
+  border-bottom: 150px solid var(--envelope-cover);
+  bottom: 0;
+}
+
+.letter{
+  position: absolute;
+  right: 20%;
+  bottom: 0;
+  width 54%;
+  height: 80%;
+  background: var(--primary);
+  transition: all 1s ease-in-out;
+  padding:20x 10px;
+  box-shadow: 0 0 10px var(--shadow-color);
+}
+
+.heart{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  background: var(--heart-color);
+  z-index: 4;
+  transform: translate(-50%, -20%) rotate(45deg);
+  transition: transform 0.5s ease-in-out 1s;
+  box-shadow: 0 0 10px var(--shadow-color);
   cursor: pointer;
 }
 
-.envelope .body {
-  width: 100%;
-  height: 100%;
-  background-color: #ffe5b4; /* Light tan color for the envelope */
-  border: 2px solid #d4a373; /* Border color for envelope */
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  line-height: 200px;
-  overflow: hidden; /* Hides flyer content until opened */
-}
-
-.envelope .flap {
-  width: 0;
-  height: 0;
-  border-left: 150px solid transparent; /* Half width of envelope */
-  border-right: 150px solid transparent;
-  border-bottom: 100px solid #ffe5b4; /* Same color as envelope body */
+.heart::before,
+.heart::after{
+  content: '';
   position: absolute;
-  top: -100px; /* Pull it above the envelope body */
-  left: 0;
-  z-index: 2;
+  width: 15px;
+  height: 15px;
+  background car(--heart-color);
+  border-radius: 50%;
 }
 
-.envelope .bottom {
-  width: 0;
-  height: 0;
-  border-left: 150px solid transparent;
-  border-right: 150px solid transparent;
-  border-top: 100px solid #ffe5b4;
-  position: absolute;
-  bottom: -100px; /* Pull it below the envelope body */
-  left: 0;
-  z-index: 0;
+.heart::before{
+  top: -7.5px;
 }
-
-/* Flyer Styles */
-.flyer {
-  display: none;
-  margin-top: 20px;
-  text-align: center;
-}
-
-.flyer img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Animation Styles */
-.opening .flap {
-  transform: rotateX(180deg); /* Simulates the flap opening */
-  transform-origin: bottom center;
-  transition: transform 1s ease;
-}
-
-.opening .body {
-  transition: opacity 1s ease;
-  opacity: 0; /* Hide the envelope body after opening */
+.heart::after{
+  right: 7.5px;
 }
