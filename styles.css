@@ -1,3 +1,4 @@
+/* General Styles */
 body {
   display: flex;
   justify-content: center;
@@ -8,23 +9,70 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.letter {
-  width: 200px;
-  height: 150px;
-  background-color: #ffebcd;
-  border: 2px solid #d4a373;
-  text-align: center;
-  line-height: 150px;
+/* Envelope Styles */
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 200px;
   cursor: pointer;
-  transition: transform 1s;
 }
 
+.envelope .body {
+  width: 100%;
+  height: 100%;
+  background-color: #ffe5b4; /* Light tan color for the envelope */
+  border: 2px solid #d4a373; /* Border color for envelope */
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  line-height: 200px;
+  overflow: hidden; /* Hides flyer content until opened */
+}
+
+.envelope .flap {
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent; /* Half width of envelope */
+  border-right: 150px solid transparent;
+  border-bottom: 100px solid #ffe5b4; /* Same color as envelope body */
+  position: absolute;
+  top: -100px; /* Pull it above the envelope body */
+  left: 0;
+  z-index: 2;
+}
+
+.envelope .bottom {
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-top: 100px solid #ffe5b4;
+  position: absolute;
+  bottom: -100px; /* Pull it below the envelope body */
+  left: 0;
+  z-index: 0;
+}
+
+/* Flyer Styles */
 .flyer {
   display: none;
   margin-top: 20px;
+  text-align: center;
 }
 
 .flyer img {
   max-width: 100%;
   height: auto;
+}
+
+/* Animation Styles */
+.opening .flap {
+  transform: rotateX(180deg); /* Simulates the flap opening */
+  transform-origin: bottom center;
+  transition: transform 1s ease;
+}
+
+.opening .body {
+  transition: opacity 1s ease;
+  opacity: 0; /* Hide the envelope body after opening */
 }
