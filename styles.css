@@ -64,11 +64,11 @@ body {
   position: absolute;
   right: 20%;
   bottom: 0;
-  width 54%;
+  width: 54%;
   height: 80%;
   background: var(--primary);
   transition: all 1s ease-in-out;
-  padding:20x 10px;
+  padding: 20px 10px;
   box-shadow: 0 0 10px var(--shadow-color);
 }
 
@@ -102,3 +102,18 @@ body {
 .heart::after{
   right: 7.5px;
 }
+
+.flap > .envelope::before{
+  z-index: 0;
+  transfor: rotateX(180deg);
+}
+
+.flap > .envelope .letter{
+  bottom: 100px;
+  trandform: scale(1.5);
+  transition-delay: 1s;
+}
+
+.flap > .heart{
+  transform: rotate(90deg);
+  transition-delay: 0.4s;
